@@ -1,3 +1,33 @@
+# Developer Notes (Original assignment info at bottom)
+This is the MVP application created in an effort to complete the assignment in under 10 hours. There are many additions that should be added in future iterations and these are listed in the "Future Work" section
+
+## Basic Architecture
+* MVVM
+* RxKotlin (RxJava3)
+* Hilt
+* Retrofit
+* Glide
+* Room
+* Gson
+* Mockito
+<img src="https://user-images.githubusercontent.com/7074773/174644916-051c30d7-0f96-4a61-a668-092ecbb2e658.png" width="512px"/>
+
+## Future Work
+* Full Offline Support
+  * Save data sources to DB for persitent cache management
+  * Modify Data Layer to handle network connectivity and use Local Datasource in case of no network connection
+* Story sorting
+* Story priority
+* Put "News Feed" in fragment for "Single Activity" architecture
+  * Easily integrate Jetpack Navigation (graphs, etc)
+* Testing
+  * Data source deserialization
+  * StoryDataSource proper fetching (cach, network)
+  * View/ViewModel
+    * data trasformation to "NewsFeed" class
+    * Success, Empty, Error case handling
+
+
 # Android home assignment
 
 Use the supplied Android project (gradle) template to implement the following requirements: 

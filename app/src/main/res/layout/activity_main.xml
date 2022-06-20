@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="homework.chegg.com.chegghomework.activitymain.MainActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/toolbar" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/toolbar"
+            android:layout_centerInParent="true"
+            android:orientation="vertical"
+            android:visibility="@{showData ? View.VISIBLE : View.GONE}"
+            app:layoutManager="LinearLayoutManager"
+            app:setAdapter="@{adapter}"
+            tools:listitem="@layout/card_item" />
+
+        <RelativeLayout
+            android:id="@+id/loadingView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/toolbar"
+            android:layout_centerInParent="true"
+            android:visibility="@{isLoading ? View.VISIBLE : View.GONE}"
+            tools:visibility="gone">
+
+            <ProgressBar
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:layout_centerInParent="true"
+                android:indeterminate="true" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/errorView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/toolbar"
+            android:layout_centerInParent="true"
+            android:visibility="@{isError ? View.VISIBLE : View.GONE}"
+            tools:visibility="gone">
+
+            <androidx.constraintlayout.utils.widget.ImageFilterView
+                android:id="@+id/iv_error"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:layout_centerInParent="true"
+                android:src="@drawable/ic_baseline_sentiment_very_dissatisfied_24" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/iv_error"
+                android:layout_centerHorizontal="true"
+                android:text="@string/main_error_message" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/emptyView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/toolbar"
+            android:layout_centerInParent="true"
+            android:visibility="@{isEmpty ? View.VISIBLE : View.GONE}"
+            tools:visibility="gone">
+
+            <androidx.constraintlayout.utils.widget.ImageFilterView
+                android:id="@+id/iv_empty"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:layout_centerInParent="true"
+                android:src="@drawable/ic_baseline_cruelty_free_24" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/iv_empty"
+                android:layout_centerHorizontal="true"
+                android:text="@string/main_error_message" />
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+    <data>
+
+
+        <variable
+            name="adapter"
+            type="homework.chegg.com.chegghomework.ui.adapter.ArticlesAdapter" />
+
+        <variable
+            name="showData"
+            type="Boolean" />
+
+        <variable
+            name="isLoading"
+            type="Boolean" />
+
+        <variable
+            name="isEmpty"
+            type="Boolean" />
+
+        <variable
+            name="isError"
+            type="Boolean" />
+
+        <import type="android.view.View" />
+
+        <import type="homework.chegg.com.chegghomework.ui.adapter.BindingAdapterKt" />
+
+    </data>
+
+</layout>

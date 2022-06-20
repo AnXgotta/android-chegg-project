@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">CheggHomework</string>
+    <string name="refresh_data">Go, go, go!</string>
+
+    <string name="main_error_message">Something went wrong…</string>
+
+    <string name="main_empty_message">We couldn\'t find any news!</string>
+
+</resources>

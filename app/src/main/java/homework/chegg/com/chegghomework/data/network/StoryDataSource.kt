@@ -8,6 +8,9 @@ class StoryDataSource @Inject constructor(
     private val storyDataSources: Map<Int, Pair<IStorySource, CacheTimestamp>>
 ) : BaseDataSource() {
 
+    /**
+     * Cache data needs to be moved to a persistent location (DB) for full offline support
+     */
     class CacheTimestamp(private val timeoutMins: Long, private var lastFetchedMillis: Long = 0L) {
         fun setFetched() {
             lastFetchedMillis = System.currentTimeMillis()
